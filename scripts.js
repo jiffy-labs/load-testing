@@ -28,7 +28,7 @@ export default function () {
 
     const address = ADDRESS_LIST[Math.random()%10]
     http.get(`${BASE_URL}/api/v0/getAddressActivity?address=${address}`);
-    http.get(`${BASE_URL}/api/v0/getAddressActivityTest?address=${address}`);
+    // http.get(`${BASE_URL}/api/v0/getAddressActivityTest?address=${address}`);
 
     sleep(0.3);
 }
