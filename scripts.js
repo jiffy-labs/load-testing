@@ -3,7 +3,7 @@ import http from "k6/http";
 import { sleep } from "k6";
 
 export let options = {
-    vus: 1000,
+    vus: 2000,
     duration: "10s",
     thresholds: {
         http_req_duration: ["p(95)<800", "p(99)<1500"],
@@ -27,7 +27,8 @@ export default function () {
     ];
 
     const address = ADDRESS_LIST[Math.random()%10]
-    http.get(`${BASE_URL}/api/v0/getAddressActivity?address=0xf04d7a8bab5b8859690b8acd085354a315bd4aec`);
+    http.get(`${BASE_URL}/api/v0/getAddressActivity?address=${address}`);
+    http.get(`${BASE_URL}/api/v0/getAddressActivityTest?address=${address}`);
 
     sleep(0.3);
 }
